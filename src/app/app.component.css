@@ -1,0 +1,19 @@
+.toolbar {
+  display:flex;
+  /* position: absolute; */
+  height: 60px;
+  top: 0;
+  left: 0;
+  right: 0;
+  align-items: center;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.redditIcon{
+  height: 32px;
+  width: 32px;
+  margin: 8px;;
+}
