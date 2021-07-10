@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { EmailValidator, FormGroup, Validators } from '@angular/forms';
 import { FormlyFieldConfig } from '@ngx-formly/core';
+import { AuthService } from '../shared/auth.service';
+import { SignUpModel } from './signup.model';
 
 @Component({
   selector: 'app-signup',
@@ -10,44 +12,22 @@ import { FormlyFieldConfig } from '@ngx-formly/core';
 export class SignupComponent implements OnInit {
 
   form = new FormGroup({});
-  model = {};
-  fields: FormlyFieldConfig[] = [
-    {
-      key: 'email',
-      type: 'input',
-      templateOptions: {
-        label: 'Email',
-        placeholder: 'Email',
-        required: true,
-      }
-    }, {
-      key: 'username',
-      type: 'input',
-      templateOptions: {
-        label: 'Username',
-        placeholder: 'Username',
-        required: true,
-      }
-    },
-    {
-      key: 'password',
-      type: 'input',
-      templateOptions: {
-        label: 'Password',
-        type: 'password',
-        placeholder: 'Password',
-        required: true,
-      }
-    }
-  ];
+  signUpModel: SignUpModel;
+  fields: FormlyFieldConfig[];
 
   onSubmit() {
     if (this.form.valid) {
-      alert(JSON.stringify(this.model, null, 2));
+      console.log(JSON.stringify(this.signUpModel, null, 2));
+      this.authService.signup(this.signUpModel).subscribe(res => console.log(res));
     }
   }
 
-  constructor() { }
+  constructor(
+    private authService: AuthService
+  ) {
+    this.signUpModel = new SignUpModel();
+    this.fields = this.signUpModel.getFields();
+  }
 
   ngOnInit(): void {
   }

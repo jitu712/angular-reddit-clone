@@ -13,6 +13,7 @@ import { MatCardModule } from '@angular/material/card';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyMaterialModule } from '@ngx-formly/material';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { FormlyMaterialModule } from '@ngx-formly/material';
     MatCardModule,
     ReactiveFormsModule,
     FormlyModule.forRoot({ extras: { lazyRender: true } }),
-    FormlyMaterialModule
+    FormlyMaterialModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

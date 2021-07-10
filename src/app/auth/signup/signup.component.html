@@ -3,7 +3,7 @@
     <mat-card-title>Register</mat-card-title>
     <mat-card-content>
       <form [formGroup]="form" (ngSubmit)="onSubmit()">
-        <formly-form [form]="form" [model]="model" [fields]="fields">
+        <formly-form [form]="form" [model]="signUpModel" [fields]="fields">
         </formly-form>
 
         <button
