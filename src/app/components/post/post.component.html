@@ -1,0 +1,19 @@
+<!-- <pre>{{ post | json }}</pre> -->
+
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{ post.postName }}</mat-card-title>
+    <mat-card-subtitle>{{ post.description }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <a
+      mat-raised-button
+      color="warn"
+      [href]="post.url"
+      target="_blank"
+      rel="noopener noreferrer"
+      >Go to post</a
+    >
+    <button mat-flat-button (click)="deletePost(post)">Delete Post</button>
+  </mat-card-content>
+</mat-card>

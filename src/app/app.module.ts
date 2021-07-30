@@ -14,15 +14,18 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyMaterialModule } from '@ngx-formly/material';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
+import { TokenInterceptor } from './interceptors/token.interceptor';
+import { PostComponent } from './components/post/post.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     SignupComponent,
-    HomeComponent
+    HomeComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +41,13 @@ import { HomeComponent } from './components/home/home.component';
     HttpClientModule,
     MatSnackBarModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

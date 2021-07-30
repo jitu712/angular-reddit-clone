@@ -1,0 +1,11 @@
+<div *ngIf="posts$ | async as posts; else loading">
+  <!-- <pre>{{ post | json }}</pre> -->
+  <app-post
+    *ngFor="let post of posts"
+    [post]="post"
+    (deletePost$)="deletePost($event)"
+  ></app-post>
+</div>
+<ng-template #loading>
+  <div>Loading ...</div>
+</ng-template>

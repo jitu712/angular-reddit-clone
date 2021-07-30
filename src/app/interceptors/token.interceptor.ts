@@ -12,16 +12,22 @@ import { catchError, filter, switchMap, take } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { LoginResponse } from '../auth/login/login.reponse';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class TokenInterceptor implements HttpInterceptor {
 
   isTokenRefreshing = false;
   refreshTokenSubject: BehaviorSubject<any> = new BehaviorSubject(null);
 
-  constructor(public authService: AuthService) { }
+  constructor(public authService: AuthService) {
+    console.log("TokenInterceptor");
+  }
 
   intercept(req: HttpRequest<any>, next: HttpHandler):
     Observable<HttpEvent<any>> {
+
+    console.log("TokenInterceptor");
 
     if (req.url.indexOf('refresh') !== -1 || req.url.indexOf('login') !== -1) {
       return next.handle(req);
