@@ -7,13 +7,14 @@
   </mat-card-header>
   <mat-card-content>
     <a
-      mat-raised-button
-      color="warn"
+      mat-flat-button
       [href]="post.url"
       target="_blank"
       rel="noopener noreferrer"
       >Go to post</a
     >
-    <button mat-flat-button (click)="deletePost(post)">Delete Post</button>
+    <button color="warn" mat-icon-button (click)="deletePost(post)">
+      <mat-icon>delete</mat-icon>
+    </button>
   </mat-card-content>
 </mat-card>

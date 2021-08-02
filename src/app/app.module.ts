@@ -18,6 +18,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
 import { TokenInterceptor } from './interceptors/token.interceptor';
 import { PostComponent } from './components/post/post.component';
+import { MatIconModule } from '@angular/material/icon';
+import { HomeContainerComponent } from './components/home/home-container.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { PostComponent } from './components/post/post.component';
     LoginComponent,
     SignupComponent,
     HomeComponent,
-    PostComponent
+    PostComponent,
+    HomeContainerComponent
   ],
   imports: [
     BrowserModule,
@@ -40,6 +43,7 @@ import { PostComponent } from './components/post/post.component';
     FormlyMaterialModule,
     HttpClientModule,
     MatSnackBarModule,
+    MatIconModule,
   ],
   providers: [
     {
