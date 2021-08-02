@@ -20,6 +20,7 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
 import { PostComponent } from './components/post/post.component';
 import { MatIconModule } from '@angular/material/icon';
 import { HomeContainerComponent } from './components/home/home-container.component';
+import { PostContainerComponent } from './components/post/post-container.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { HomeContainerComponent } from './components/home/home-container.compone
     SignupComponent,
     HomeComponent,
     PostComponent,
-    HomeContainerComponent
+    HomeContainerComponent,
+    PostContainerComponent
   ],
   imports: [
     BrowserModule,

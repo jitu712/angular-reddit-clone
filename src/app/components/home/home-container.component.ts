@@ -15,6 +15,7 @@ export class HomeContainerComponent {
   ) { }
 
   ngOnInit(): void {
-    this.posts$ = this.postsService.getAllPosts();
+    this.postsService.fetchPosts();
+    this.posts$ = this.postsService.watchPosts$();
   }
 }
