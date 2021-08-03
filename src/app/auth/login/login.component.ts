@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
       console.log(JSON.stringify(this.loginModel, null, 2));
       this.authService.login(this.loginModel).subscribe(res => {
         console.log(res);
-        this._snackBar.open("Login successful");
+        this._snackBar.open("Login successful", 'Ok', { duration: 3000 });
         this.router.navigateByUrl("/");
       });
     }
