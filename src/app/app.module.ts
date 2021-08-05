@@ -21,6 +21,10 @@ import { PostComponent } from './components/post/post.component';
 import { MatIconModule } from '@angular/material/icon';
 import { HomeContainerComponent } from './components/home/home-container.component';
 import { PostContainerComponent } from './components/post/post-container.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { SubredditComponent } from './components/subreddit/subreddit.component';
+import { SubredditContainerComponent } from './components/subreddit/subreddit-container.component';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +34,9 @@ import { PostContainerComponent } from './components/post/post-container.compone
     HomeComponent,
     PostComponent,
     HomeContainerComponent,
-    PostContainerComponent
+    PostContainerComponent,
+    SubredditComponent,
+    SubredditContainerComponent
   ],
   imports: [
     BrowserModule,
@@ -46,6 +52,7 @@ import { PostContainerComponent } from './components/post/post-container.compone
     HttpClientModule,
     MatSnackBarModule,
     MatIconModule,
+    MatMenuModule
   ],
   providers: [
     {

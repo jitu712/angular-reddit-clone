@@ -1,20 +1,41 @@
 <!-- <pre>{{ post | json }}</pre> -->
 
-<mat-card>
+<mat-card class="postCard">
   <mat-card-header>
+    <div
+      mat-card-avatar
+      class="example-header-image"
+      style="background-color: aqua"
+    ></div>
     <mat-card-title>{{ post.postName }}</mat-card-title>
-    <mat-card-subtitle>{{ post.description }}</mat-card-subtitle>
+    <mat-card-subtitle
+      ><a routerLink="/subreddit/{{ post.subredditName }}">{{
+        post.subredditName
+      }}</a>
+      |
+      <a routerLink="/user/{{ post.username }}">{{
+        post.username
+      }}</a></mat-card-subtitle
+    >
+    <div class="spacer"></div>
+    <button
+      mat-icon-button
+      [matMenuTriggerFor]="menu"
+      aria-label="Example icon-button with a menu"
+    >
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>delete</mat-icon>
+        <!-- <span>Delete</span> -->
+      </button>
+    </mat-menu>
   </mat-card-header>
   <mat-card-content>
-    <a
-      mat-flat-button
-      [href]="post.url"
-      target="_blank"
-      rel="noopener noreferrer"
-      >Go to post</a
-    >
-    <button color="warn" mat-icon-button (click)="deletePost(post)">
-      <mat-icon>delete</mat-icon>
-    </button>
+    <p>{{ post.description }}</p>
   </mat-card-content>
+  <!-- <mat-card-actions>
+    <button mat-icon-button><mat-icon>delete</mat-icon></button>
+  </mat-card-actions> -->
 </mat-card>

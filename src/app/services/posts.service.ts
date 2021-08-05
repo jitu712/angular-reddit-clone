@@ -7,8 +7,15 @@ import { PostModel } from '../models/post.model';
   providedIn: 'root'
 })
 export class PostsService {
+  getAllPostsInSubreddit(subredditname: string) {
+    return this.http.get<Array<PostModel>>(`http://localhost:8080/api/posts/by-subreddit/${subredditname}`);
+  }
   fetchPosts() {
     this.getAllPosts().subscribe(posts => this.setPosts(posts));
+  }
+
+  fetchPostsInSubreddit(subredditname: string) {
+    this.getAllPostsInSubreddit(subredditname).subscribe(posts => this.setPosts(posts));
   }
 
   private posts$ = new BehaviorSubject<PostModel[]>([]);
