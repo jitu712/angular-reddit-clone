@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: '', component: HomeContainerComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-  // { path: 'rnd', loadChildren: () => import('./rnd/rnd.module').then(m => m.RndModule) },
+  { path: 'rnd', loadChildren: () => import('./rnd/rnd.module').then(m => m.RndModule) },
   { path: 'subreddit/:subredditname', component: SubredditContainerComponent },
 ];
 
