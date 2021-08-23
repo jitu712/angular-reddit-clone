@@ -27,6 +27,7 @@ import { SubredditContainerComponent } from './components/subreddit/subreddit-co
 import { UserContainerComponent } from './components/user/user-container.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
+import { FabComponent } from './components/fab/fab.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { HeaderComponent } from './components/header/header.component';
     SubredditContainerComponent,
     UserContainerComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    FabComponent
   ],
   imports: [
     BrowserModule,
