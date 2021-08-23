@@ -25,6 +25,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { SubredditComponent } from './components/subreddit/subreddit.component';
 import { SubredditContainerComponent } from './components/subreddit/subreddit-container.component';
 import { UserContainerComponent } from './components/user/user-container.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HeaderComponent } from './components/header/header.component';
 
 
 @NgModule({
@@ -38,7 +40,9 @@ import { UserContainerComponent } from './components/user/user-container.compone
     PostContainerComponent,
     SubredditComponent,
     SubredditContainerComponent,
-    UserContainerComponent
+    UserContainerComponent,
+    FooterComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
