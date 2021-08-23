@@ -1,11 +1,17 @@
-.toolbar {
+/* .toolbar {
   display: flex;
-  /* position: absolute; */
+  position: absolute;
   height: 60px;
   top: 0;
   left: 0;
   right: 0;
   align-items: center;
+} */
+
+.header-toolbar {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
 }
 
 .spacer {
@@ -15,7 +21,22 @@
 .redditIcon {
   height: 32px;
   width: 32px;
-  margin: 8px;
+  margin: 0 8px 0 0;
+}
+
+#skip-link {
+  position: absolute;
+}
+
+#skip-link a {
+  color: transparent;
+}
+
+#skip-link + a {
+  align-items: center;
+  padding: 0;
+  font-size: 20px;
+  padding: 0 8px;
 }
 
 #skip-link a:not(:focus) {

@@ -1,8 +1,8 @@
-<mat-toolbar>
+<mat-toolbar class="header-toolbar">
   <div id="skip-link">
     <a [href]="skipLinkPath">Skip to content</a>
   </div>
-  <a class="flex" aria-label="reddit" routerLink="/"
+  <a class="flex" mat-button aria-label="reddit" routerLink="/"
     ><svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 20 20"
@@ -16,9 +16,12 @@
         ></path>
       </g>
     </svg>
+    <span>Reddit</span>
   </a>
-  <span>Reddit</span>
-  <div class="spacer"></div>
-  <button mat-stroked-button name="login" routerLink="/login">Login</button>
-  <button mat-stroked-button name="signup" routerLink="/signup">Signup</button>
+  <div class="buttons">
+    <button mat-stroked-button name="login" routerLink="/login">Login</button>
+    <button mat-stroked-button name="signup" routerLink="/signup">
+      Signup
+    </button>
+  </div>
 </mat-toolbar>

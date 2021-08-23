@@ -5,7 +5,7 @@ import { PostsService } from "src/app/services/posts.service";
 
 @Component({
   selector: 'app-home-container',
-  template: `<app-home *ngIf="posts$ | async as posts" [posts]="posts"></app-home>`
+  template: `<app-home [posts]="(posts$ | async)!"></app-home>`
 })
 export class HomeContainerComponent {
   posts$!: Observable<PostModel[]>;
