@@ -1,12 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { CreatePostModel } from '../components/create/createpost/createpost.model';
 import { PostModel } from '../models/post.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostsService {
+  createPost(createPostModel: CreatePostModel) {
+    return this.http.post('http://localhost:8080/api/posts/', createPostModel);
+  }
   getAllPostsByUser(username: any) {
     return this.http.get<Array<PostModel>>(`http://localhost:8080/api/posts/by-user/${username}`);
   }

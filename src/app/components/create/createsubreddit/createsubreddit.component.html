@@ -1,0 +1,17 @@
+<mat-toolbar>
+  <button mat-icon-button matDialogClose><mat-icon>close</mat-icon></button>
+  <div class="createSubreddit">
+    <span>Create Subreddit</span>
+    <!-- <button mat-flat-button>Post</button> -->
+  </div>
+</mat-toolbar>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <formly-form [form]="form" [model]="createsubredditmodel" [fields]="fields">
+  </formly-form>
+
+  <button class="submitButton" type="submit" color="primary" mat-raised-button>
+    Submit
+  </button>
+
+  <!-- <button type="reset" color="warn" mat-raised-button>Reset</button> -->
+</form>

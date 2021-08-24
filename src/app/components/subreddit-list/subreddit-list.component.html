@@ -1,0 +1,5 @@
+<ul>
+  <li *ngFor="let subreddit of subreddits$ | async">
+    <a routerLink="/subreddit/{{ subreddit.name }}">{{ subreddit.name }}</a>
+  </li>
+</ul>
