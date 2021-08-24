@@ -28,6 +28,12 @@ import { UserContainerComponent } from './components/user/user-container.compone
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FabComponent } from './components/fab/fab.component';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+import { CreatesubredditComponent } from './components/create/createsubreddit/createsubreddit.component';
+import { CreatepostComponent } from './components/create/createpost/createpost.component';
+import { CreateOptionsSheet } from './components/footer/create-options-sheet';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 
 @NgModule({
@@ -44,7 +50,10 @@ import { FabComponent } from './components/fab/fab.component';
     UserContainerComponent,
     FooterComponent,
     HeaderComponent,
-    FabComponent
+    FabComponent,
+    CreateOptionsSheet,
+    CreatesubredditComponent,
+    CreatepostComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,6 +63,9 @@ import { FabComponent } from './components/fab/fab.component';
     MatButtonModule,
     MatToolbarModule,
     MatCardModule,
+    MatBottomSheetModule,
+    MatDialogModule,
+    MatFormFieldModule,
     ReactiveFormsModule,
     FormlyModule.forRoot({ extras: { lazyRender: true } }),
     FormlyMaterialModule,
