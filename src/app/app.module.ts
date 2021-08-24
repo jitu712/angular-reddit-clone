@@ -27,6 +27,13 @@ import { SubredditContainerComponent } from './components/subreddit/subreddit-co
 import { UserContainerComponent } from './components/user/user-container.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
+import { FabComponent } from './components/fab/fab.component';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+import { CreatesubredditComponent } from './components/create/createsubreddit/createsubreddit.component';
+import { CreatepostComponent } from './components/create/createpost/createpost.component';
+import { CreateOptionsSheet } from './components/footer/create-options-sheet';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 
 @NgModule({
@@ -42,7 +49,11 @@ import { HeaderComponent } from './components/header/header.component';
     SubredditContainerComponent,
     UserContainerComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    FabComponent,
+    CreateOptionsSheet,
+    CreatesubredditComponent,
+    CreatepostComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,6 +63,9 @@ import { HeaderComponent } from './components/header/header.component';
     MatButtonModule,
     MatToolbarModule,
     MatCardModule,
+    MatBottomSheetModule,
+    MatDialogModule,
+    MatFormFieldModule,
     ReactiveFormsModule,
     FormlyModule.forRoot({ extras: { lazyRender: true } }),
     FormlyMaterialModule,
