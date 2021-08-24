@@ -1,7 +1,9 @@
 <mat-toolbar class="mat-elevation-z8 footer-toolbar">
-  <button mat-icon-button><mat-icon>home</mat-icon></button>
+  <button mat-icon-button routerLink="/"><mat-icon>home</mat-icon></button>
   <button (click)="showCreateOptions()" mat-icon-button>
     <mat-icon>add</mat-icon>
   </button>
-  <button mat-icon-button><mat-icon>menu</mat-icon></button>
+  <button mat-icon-button routerLink="/subreddits">
+    <mat-icon>menu</mat-icon>
+  </button>
 </mat-toolbar>
