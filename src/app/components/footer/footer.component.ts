@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatBottomSheet, MatBottomSheetRef } from '@angular/material/bottom-sheet';
+import { CreateOptionsSheet } from './create-options-sheet';
 
 @Component({
   selector: 'app-footer',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _bottomSheet: MatBottomSheet) { }
 
   ngOnInit(): void {
   }
 
+  showCreateOptions() {
+    this._bottomSheet.open(CreateOptionsSheet);
+  }
+
 }
+
