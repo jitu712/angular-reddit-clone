@@ -34,6 +34,7 @@ import { CreatepostComponent } from './components/create/createpost/createpost.c
 import { CreateOptionsSheet } from './components/footer/create-options-sheet';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { SubredditListComponent } from './components/subreddit-list/subreddit-list.component';
 
 
 @NgModule({
@@ -54,6 +55,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     CreateOptionsSheet,
     CreatesubredditComponent,
     CreatepostComponent,
+    SubredditListComponent,
   ],
   imports: [
     BrowserModule,
