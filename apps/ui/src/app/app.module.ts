@@ -35,6 +35,7 @@ import { CreateOptionsSheet } from './components/footer/create-options-sheet';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { SubredditListComponent } from './components/subreddit-list/subreddit-list.component';
+import { MatRippleModule } from '@angular/material/core';
 
 
 @NgModule({
@@ -74,7 +75,8 @@ import { SubredditListComponent } from './components/subreddit-list/subreddit-li
     HttpClientModule,
     MatSnackBarModule,
     MatIconModule,
-    MatMenuModule
+    MatMenuModule,
+    MatRippleModule
   ],
   providers: [
     {

@@ -45,3 +45,7 @@
   position: absolute;
   top: -60px;
 }
+
+a#header-brand {
+  @apply flex;
+}
