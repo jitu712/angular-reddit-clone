@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormlyFieldConfig } from '@ngx-formly/core';
 import { AuthService } from '../shared/auth.service';
-import { LoginModel } from './login.model';
+import { LoginFields, LoginModel } from './login.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 
@@ -16,25 +16,27 @@ export class LoginComponent {
   form = new FormGroup({});
   loginModel: LoginModel;
   fields: FormlyFieldConfig[];
+  isLoggedIn!: boolean;
 
   onSubmit() {
     if (this.form.valid) {
       console.log(JSON.stringify(this.loginModel, null, 2));
       this.authService.login(this.loginModel).subscribe(res => {
         console.log(res);
-        this._snackBar.open("Login successful", 'Ok', { duration: 3000 });
-        this.router.navigateByUrl("/");
+        this.isLoggedIn = res;
+        // this._snackBar.open("Login successful", 'Ok', { duration: 3000 });
+        this.router.navigateByUrl("/", { replaceUrl: true });
       });
     }
   }
 
   constructor(
     private authService: AuthService,
-    private _snackBar: MatSnackBar,
+    // private _snackBar: MatSnackBar,
     private router: Router
   ) {
     this.loginModel = new LoginModel();
-    this.fields = this.loginModel.getFields();
+    this.fields = LoginFields;
   }
 
 
