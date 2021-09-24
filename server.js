@@ -10,7 +10,7 @@ app.use(express.static(__dirname + '/dist/angular-reddit-clone'));
 function requireHTTPS(req, res, next) {
   // The 'x-forwarded-proto' check is for Heroku
   if (!req.secure && req.get('x-forwarded-proto') !== 'https') {
-      return res.redirect('https://' + req.get('host') + req.url);
+    return res.redirect('https://' + req.get('host') + req.url);
   }
   next();
 }
@@ -21,4 +21,4 @@ app.get('/*', (req, res) => res.sendFile(path.join(__dirname)));
 
 const server = http.createServer(app);
 
-server.listen(port, () => console.log(`App running on: http://localhost:${port}`));
+server.listen(port, () => console.log(`App running on: port :${port}`));
