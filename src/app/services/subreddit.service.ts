@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { SubredditModel } from '../models/subreddit.model';
 import { CreateSubredditModel } from '../components/create/createsubreddit/createsubreddit.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -15,11 +16,11 @@ export class SubredditService {
   subreddits: SubredditModel[] = [];
 
   getAllSubreddits() {
-    return this.http.get<Array<SubredditModel>>('http://localhost:8080/api/subreddit/').subscribe(posts => this.setPosts(posts));;
+    return this.http.get<Array<SubredditModel>>(environment.endpoint + '/api/subreddit/').subscribe(posts => this.setPosts(posts));;
   }
 
   createSubreddit(createSubredditModel: CreateSubredditModel) {
-    return this.http.post('http://localhost:8080/api/subreddit/', createSubredditModel);
+    return this.http.post(environment.endpoint + '/api/subreddit/', createSubredditModel);
   }
 
   setPosts(subreddits: SubredditModel[]) {

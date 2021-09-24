@@ -5,6 +5,7 @@ import { SignUpModel } from '../signup/signup.model';
 import { HttpClient } from '@angular/common/http';
 import { LoginModel } from '../login/login.model';
 import { LoginResponse } from '../login/login.reponse';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class AuthService {
   }
 
   refreshToken() {
-    return this.httpClient.post<LoginResponse>('http://localhost:8080/api/auth/refresh/token',
+    return this.httpClient.post<LoginResponse>(environment.endpoint + '/api/auth/refresh/token',
       this.refreshTokenPayload)
       .pipe(tap(response => {
         window.localStorage.removeItem('authenticationToken');
@@ -26,7 +27,7 @@ export class AuthService {
       }));
   }
   login(loginModel: LoginModel): Observable<boolean> {
-    return this.httpClient.post<LoginResponse>('http://localhost:8080/api/auth/login', loginModel).pipe(
+    return this.httpClient.post<LoginResponse>(environment.endpoint + '/api/auth/login', loginModel).pipe(
       map(data => {
         window.localStorage.setItem('authenticationToken', data.authenticationToken);
         window.localStorage.setItem('username', data.username);
@@ -42,7 +43,7 @@ export class AuthService {
   ) { }
 
   signup(signUpModel: SignUpModel): Observable<any> {
-    return this.httpClient.post('http://localhost:8080/api/auth/signup', signUpModel, { responseType: 'text' })
+    return this.httpClient.post(environment.endpoint + '/api/auth/signup', signUpModel, { responseType: 'text' })
   }
 
   getJwtToken() {
