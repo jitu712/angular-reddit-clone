@@ -8,7 +8,7 @@ export class CreatePostModel {
   getFields(): FormlyFieldConfig[] {
     return [
       {
-        key: 'name',
+        key: 'postName',
         type: 'input',
         templateOptions: {
           label: 'Name of Post',

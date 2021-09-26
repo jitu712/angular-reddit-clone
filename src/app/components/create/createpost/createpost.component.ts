@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormlyFieldConfig } from '@ngx-formly/core';
-import { SubredditService } from 'src/app/services/subreddit.service';
-import { CreateSubredditModel } from '../createsubreddit/createsubreddit.model';
 import { CreatePostModel } from './createpost.model';
 import { PostsService } from '../../../services/posts.service';
+import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-createpost',
@@ -20,16 +20,16 @@ export class CreatepostComponent implements OnInit {
   onSubmit() {
     if (this.form.valid) {
       console.log(JSON.stringify(this.createPostModel, null, 2));
-      this.postsService.createPost(this.createPostModel).subscribe(res => {
-        console.log(res);
-        // this._snackBar.open("Login successful", 'Ok', { duration: 3000 });
-        // this.router.navigateByUrl("/");
-      });
+      this.postsService.createPost(this.createPostModel);
     }
+    this.router.navigateByUrl("/");
+    this.matDialog.closeAll();
   }
 
   constructor(
-    private postsService: PostsService
+    private postsService: PostsService,
+    private router: Router,
+    private matDialog: MatDialog
   ) {
     this.createPostModel = new CreatePostModel();
     this.fields = this.createPostModel.getFields();

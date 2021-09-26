@@ -10,7 +10,9 @@ import { PostModel } from '../models/post.model';
 })
 export class PostsService {
   createPost(createPostModel: CreatePostModel) {
-    return this.http.post(environment.endpoint + '/api/posts/', createPostModel);
+    this.http.post(environment.endpoint + '/api/posts/', createPostModel)
+      .subscribe(post => this.posts.push(post as PostModel));
+    this.setPosts(this.posts);
   }
   getAllPostsByUser(username: any) {
     return this.http.get<Array<PostModel>>(`${environment.endpoint}/api/posts/by-user/${username}`);
