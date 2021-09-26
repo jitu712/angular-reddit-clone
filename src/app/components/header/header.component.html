@@ -18,10 +18,15 @@
     </svg>
     <span>Reddit</span>
   </a>
-  <div class="buttons">
+  <div class="buttons" *ngIf="!authService.isLoggedIn();else loggedInHeader" >
     <button mat-stroked-button name="login" routerLink="/login">Login</button>
     <button mat-stroked-button name="signup" routerLink="/signup">
       Signup
     </button>
   </div>
+  <ng-template #loggedInHeader>
+    <div>
+      <span>{{loggedInUserName}}</span>
+    </div>
+  </ng-template>
 </mat-toolbar>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/auth/shared/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -8,10 +9,14 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   skipLinkPath = "#main-content";
+  loggedInUserName!: string | null;
 
-  constructor() { }
+  constructor(
+    public authService: AuthService
+  ) { }
 
   ngOnInit(): void {
+    this.loggedInUserName = this.authService.getUserName();
   }
 
 }
